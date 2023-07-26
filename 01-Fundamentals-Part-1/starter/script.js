@@ -27,3 +27,28 @@
       }
 
       console.log(`javascript learning in progress4`);
+
+
+      //type conversion
+      const inputYear='1991';
+      console.log(Number(inputYear) , inputYear);
+      console.log(Number(inputYear)+18);
+
+
+      //type coercion
+
+      console.log('I am '+ 23 + ' Years old');
+
+      //5 falsy values : 0, '', underfined , null , NaN
+
+      const ageb=18;
+      if(ageb===18) console.log('You just became an adult');
+
+      // == performs type coercion
+
+      if('18'== ageb) console.log('You just became an adult (loose)');
+
+      //loose equality operator // avoid as much possible
+
+      const fav= prompt("Whats your number?"); //string type
+      console.log(fav);
