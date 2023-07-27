@@ -50,5 +50,9 @@
 
       //loose equality operator // avoid as much possible
 
-      const fav= prompt("Whats your number?"); //string type
-      console.log(fav);
+      // const fav= prompt("Whats your number?"); //string type
+      // console.log(fav);
+
+      const bill =275;
+      const tip = bill>= 50 && bill <=300 ? bill*0.15 : bill*.20;
+      console.log(`The tip for ${bill} is ${tip}`);
