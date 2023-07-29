@@ -17,11 +17,37 @@ logger();
 logger();
 logger();
 
-function fruitProcessor(apple , oranges)
+function fruitProcessor(apples , oranges)
 {
     console.log(apples, oranges);
     const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
     return juice;
 }
 
-fruitProcessor(20,15);
+const appleJuice = fruitProcessor(20,15);
+console.log(appleJuice);
+
+// Anonymous function
+
+const calcAge = function(birthyear)
+{
+    return 2037-birthyear;
+}
+const age = calcAge(1991);
+
+console.log(age);
+
+
+//arrow function
+const calcAge3 = birthyear => 2037 - birthyear;
+const age2= calcAge3(1992);
+console.log(age2);
+
+const yearUntilRetirement = birthyear =>
+{
+    const age=2037-birthyear;
+    const retirement=65 - age ;
+    return retirement;
+}
+
+console.log(yearUntilRetirement(1991));
