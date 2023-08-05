@@ -85,3 +85,6 @@ console.log(friends);
 friends.shift(); // removes first element
 console.log(friends);
 
+console.log(friends.indexOf('steven'));
+
+console.log(friends.includes('bob'));
