@@ -55,17 +55,33 @@
 
 //Arrays
 
+// const friends = [ 'michael' , 'steven' , 'peter'];
+// console.log(friends);
+
+// const years = new Array(1991,1984,2008,2020);
+
+// console.log(friends.length);
+
+// console.log(friends[friends.length-1]);
+
+// const firstName = 'Aniket';
+// const Aniket = [ firstName , 'saha' , 2023-1999 , 'Engg', friends];
+
+// console.log(Aniket);
+// console.log(Aniket.length);
+
 const friends = [ 'michael' , 'steven' , 'peter'];
+const newLength =friends.push('jay'); // push pop returns the length of the array
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John'); // add to first position
+
+// Remove elements
+
+friends.pop(); // last element
+console.log(friends); 
+
+friends.shift(); // removes first element
 console.log(friends);
 
-const years = new Array(1991,1984,2008,2020);
-
-console.log(friends.length);
-
-console.log(friends[friends.length-1]);
-
-const firstName = 'Aniket';
-const Aniket = [ firstName , 'saha' , 2023-1999 , 'Engg', friends];
-
-console.log(Aniket);
-console.log(Aniket.length);
