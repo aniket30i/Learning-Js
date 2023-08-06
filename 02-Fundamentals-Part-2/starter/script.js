@@ -117,3 +117,12 @@ console.log(aniket['last'+nameKey]);
 const interestedIn = prompt('What you want?')
 console.log(aniket[interestedIn]);
 
+
+if(aniket[interestedIn])
+{
+    console.log(aniket[interestedIn]);
+}
+else
+{
+    console.log('Wrong req!')
+}
