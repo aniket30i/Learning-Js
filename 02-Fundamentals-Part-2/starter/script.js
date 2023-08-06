@@ -99,5 +99,21 @@ const aniketArray = [
 
 const aniket = {
     firstName : ' Aniket' , 
-    lastName : 'Saha'
+    lastName : 'Saha',
+    job : 'engg'
 };
+
+// interesting stuff
+
+const nameKey = 'Name';
+console.log(aniket['first'+nameKey]);
+console.log(aniket['last'+nameKey]);
+
+// thing it does it the code inside the [] is considered as
+// a expression so it concats the 'first' with the value stored inside the variable
+// it becomes firstName which is the key of the predefined array and outputs the object associated with the key
+// . notation for extact entity and [] for expression
+
+const interestedIn = prompt('What you want?')
+console.log(aniket[interestedIn]);
+
