@@ -100,7 +100,8 @@ const aniketArray = [
 const aniket = {
     firstName : ' Aniket' , 
     lastName : 'Saha',
-    job : 'engg'
+    job : 'engg',
+    friendz : ['mihcael','peter','steven']
 };
 
 // interesting stuff
@@ -114,15 +115,26 @@ console.log(aniket['last'+nameKey]);
 // it becomes firstName which is the key of the predefined array and outputs the object associated with the key
 // . notation for extact entity and [] for expression
 
-const interestedIn = prompt('What you want?')
-console.log(aniket[interestedIn]);
+
+// add attributes
+
+aniket.location = 'India';
+aniket['github'] = 'aniket30i';
 
 
-if(aniket[interestedIn])
-{
-    console.log(aniket[interestedIn]);
-}
-else
-{
-    console.log('Wrong req!')
-}
+// const interestedIn = prompt('What you want?')
+// console.log(aniket[interestedIn]);
+
+
+// if(aniket[interestedIn])
+// {
+//     console.log(aniket[interestedIn]);
+// }
+// else
+// {
+//     console.log('Wrong req!')
+// }
+
+console.log(aniket);
+
+console.log(`${aniket.firstName} has ${aniket.friendz.length} friends and ${aniket.friendz[0]} is the bestfriend `)
