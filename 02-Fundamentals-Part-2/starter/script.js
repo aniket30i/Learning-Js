@@ -88,3 +88,16 @@ console.log(friends);
 console.log(friends.indexOf('steven'));
 
 console.log(friends.includes('bob'));
+
+const aniketArray = [
+    'Aniket',
+    'Saha',
+    2023-1999,
+    'engg',
+    ['mihcael','peter','steven']
+];
+
+const aniket = {
+    firstName : ' Aniket' , 
+    lastName : 'Saha'
+};
