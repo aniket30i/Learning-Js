@@ -137,4 +137,4 @@ aniket['github'] = 'aniket30i';
 
 console.log(aniket);
 
-console.log(`${aniket.firstName} has ${aniket.friendz.length} friends and ${aniket.friendz[0]} is the bestfriend yo`)
+console.log(`${aniket.firstName} has ${aniket.friendz.length} friends and ${aniket.friendz[0]} is the bestfriend yo1`)
