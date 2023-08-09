@@ -138,3 +138,27 @@ aniket['github'] = 'aniket30i';
 console.log(aniket);
 
 console.log(`${aniket.firstName} has ${aniket.friendz.length} friends and ${aniket.friendz[0]} is the bestfriend yo1`)
+
+const jonas2= {
+    firstName : 'Jonas',
+    lastName : 'Schmedtmann',
+    birthYear : '1991',
+    job : 'teacher',
+    friends : ['mihcael','peter','steven'],
+    hasDriversLicense : true,
+
+    calcAge : function()
+    {
+        this.age = 2023 - this.birthYear;
+        return this.age; // adding attribute
+    },
+
+    getSummary : function ()
+    {
+        return `${this.firstName} is a ${this.calcAge()}  -year old ${jonas2.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} drivers license` ;
+    }
+};
+
+console.log(jonas2.calcAge());
+
+console.log(jonas2.getSummary());
