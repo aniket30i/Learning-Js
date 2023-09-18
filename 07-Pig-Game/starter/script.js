@@ -105,4 +105,4 @@ btnHold.addEventListener('click', function () {
 
 btnNew.addEventListener('click', init);
 
-// just another way of calling the intended function..
+// just another way of calling the intended function...
