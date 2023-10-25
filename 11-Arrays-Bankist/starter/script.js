@@ -84,7 +84,7 @@ const user = 'Steven Thomas Williams';
 
 //This is the expanded form which can be shortened using arrow
 //function and arrow function actively returns just we dont
-//write it
+//write
 
 // const username = user
 //   .toLowerCase()
@@ -93,14 +93,18 @@ const user = 'Steven Thomas Williams';
 //     return name[0];
 //   })
 //   .join('');
+const createUsername = function (user) {
+  user.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0]) //map method helped to make another array of abbreviations
+      .join('');
+  });
+};
 
-const username = user
-  .toLowerCase()
-  .split(' ')
-  .map(name => name[0])
-  .join('');
-
-console.log(username);
+createUsername(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
