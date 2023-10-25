@@ -80,6 +80,17 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const user = 'Steven Thomas Williams';
+const username = user
+  .toLowerCase()
+  .split(' ')
+  .map(function (name) {
+    return name[0];
+  })
+  .join();
+
+console.log(username);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -93,3 +104,6 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+const julia = [3, 5, 2, 12, 7];
+const kate = [4, 1, 15, 8, 3];
