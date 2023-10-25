@@ -81,13 +81,24 @@ const displayMovements = function (movements) {
 displayMovements(account1.movements);
 
 const user = 'Steven Thomas Williams';
+
+//This is the expanded form which can be shortened using arrow
+//function and arrow function actively returns just we dont
+//write it
+
+// const username = user
+//   .toLowerCase()
+//   .split(' ')
+//   .map(function (name) {
+//     return name[0];
+//   })
+//   .join('');
+
 const username = user
   .toLowerCase()
   .split(' ')
-  .map(function (name) {
-    return name[0];
-  })
-  .join();
+  .map(name => name[0])
+  .join('');
 
 console.log(username);
 
