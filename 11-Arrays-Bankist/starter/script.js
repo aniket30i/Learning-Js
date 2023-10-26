@@ -80,6 +80,27 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+
 const user = 'Steven Thomas Williams';
 
 //This is the expanded form which can be shortened using arrow
@@ -106,19 +127,42 @@ const createUsername = function (user) {
 createUsername(accounts);
 console.log(accounts);
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
+////////////////////reduce///////////////
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+const balance = movements.reduce(
+  function (acc, curr, i, arr) {
+    console.log(`Iteration ${i} : ${acc}`);
+    return acc + curr;
+  },
+  0 //initial value of the accumulator
+);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
+console.log(balance);
 
 const julia = [3, 5, 2, 12, 7];
 const kate = [4, 1, 15, 8, 3];
+
+const inHumanYears = function (age) {
+  const humanAges = age.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+  console.log(humanAges);
+
+  const adult = humanAges.filter(age => age >= 18);
+  console.log(adult);
+
+  const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
+
+  return average;
+};
+
+const avg1 = inHumanYears([3, 5, 2, 12, 7]);
+console.log(avg1);
+
+const euroToUsd = 1.1;
+
+// PIPELINE
+const totalDeposits = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * euroToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDeposits);
