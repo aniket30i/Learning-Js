@@ -78,14 +78,13 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+
 
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance} EUR`;
 };
 
-calcDisplayBalance(account1.movements);
 
 const calcDisplaySummary = function (movements) {
   const incomes = movements
@@ -132,6 +131,21 @@ btnLogin.addEventListener('click', function (e) {
     console.log('Login');
 
     // ? means only read when the account exists
+
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`};
+
+    containerApp.computedStyleMap.opacity = 100;
+
+    //Display Movements
+    displayMovements(currentAccount.movements);
+
+    //Display balance
+    calcDisplayBalance(currentAccount.movements);
+
+    //Display summary
+    calcDisplaySummary(currentAccount);
+
   }
 });
 
