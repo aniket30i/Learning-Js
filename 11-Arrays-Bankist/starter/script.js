@@ -87,6 +87,54 @@ const calcDisplayBalance = function (movements) {
 
 calcDisplayBalance(account1.movements);
 
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumIn.textContent = `${incomes}`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+
+  labelSumOut.textContent = `${Math.abs(out)}`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => {
+      console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+
+  labelSumInterest.textContent = `${interest}`;
+};
+
+calcDisplaySummary(account1.movements);
+
+//Event Handler
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // prevent form from submiting
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('Login');
+
+    // ? means only read when the account exists
+  }
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -142,17 +190,23 @@ console.log(balance);
 const julia = [3, 5, 2, 12, 7];
 const kate = [4, 1, 15, 8, 3];
 
-const inHumanYears = function (age) {
-  const humanAges = age.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
-  console.log(humanAges);
+// const inHumanYears = function (age) {
+//   const humanAges = age.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   console.log(humanAges);
 
-  const adult = humanAges.filter(age => age >= 18);
-  console.log(adult);
+//   const adult = humanAges.filter(age => age >= 18);
+//   console.log(adult);
 
-  const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
+//   const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
 
-  return average;
-};
+//   return average;
+// };
+
+const inHumanYears = age =>
+  age
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
 
 const avg1 = inHumanYears([3, 5, 2, 12, 7]);
 console.log(avg1);
