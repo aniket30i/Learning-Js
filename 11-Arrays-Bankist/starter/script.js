@@ -269,7 +269,7 @@ const kate = [4, 1, 15, 8, 3];
 //   const adult = humanAges.filter(age => age >= 18);
 //   console.log(adult);
 
-//   const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
+///   const average = adult.reduce((acc, age) => acc + age, 0) / adult.length;
 
 //   return average;
 // };
