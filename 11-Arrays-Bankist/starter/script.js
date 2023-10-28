@@ -186,6 +186,19 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    console.log('Approved loan');
+
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
   console.log('Delete');
@@ -290,3 +303,19 @@ const totalDeposits = movements
   .filter(mov => mov > 0)
   .map(mov => mov * euroToUsd)
   .reduce((acc, mov) => acc + mov, 0);
+
+//Equality
+
+console.log(movements.includes(-130));
+
+//SOME : condition
+
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log(anyDeposits);
+
+//Every
+
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
