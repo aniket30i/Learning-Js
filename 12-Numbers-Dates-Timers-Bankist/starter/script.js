@@ -177,13 +177,9 @@ const updateUI = function (acc) {
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, timer;
 
 ////FAKE LOGGED IN
-
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
 
 // const now = new Date();
 // const day = `${now.getDate()}`.padStart(2, 0);
@@ -222,6 +218,9 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
 
+    if (timer) clearInterval(timer);
+    timer = startLogoutTimer();
+
     // Update UI
     updateUI(currentAccount);
   }
@@ -251,6 +250,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    //reset timer
+    clearInterval(timer);
+    timer = startLogoutTimer();
   }
 });
 
@@ -269,7 +272,10 @@ btnLoan.addEventListener('click', function (e) {
 
       // Update UI
       updateUI(currentAccount);
-    }, 2500);
+      //reset timer
+      clearInterval(timer);
+      timer = startLogoutTimer();
+    }, 0);
   }
   inputLoanAmount.value = '';
 });
@@ -303,6 +309,32 @@ btnSort.addEventListener('click', function (e) {
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
 });
+
+const startLogoutTimer = function () {
+  //setting the time to 5mins
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+    //In each call. print the remaining time to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // when 0 seconds , stop timer and log out user
+
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
+    //decrease 1s
+    time--;
+  };
+
+  let time = 15;
+  //Call the timer every second
+  tick(); // calling immediately to cancel delay
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
