@@ -261,15 +261,15 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     setTimeout(function () {
-    // Add movement
-    currentAccount.movements.push(amount);
+      // Add movement
+      currentAccount.movements.push(amount);
 
-    //Add loan date
-    currentAccount.movementsDates.push(new Date().toISOString());
+      //Add loan date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
-    },2500
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
 });
@@ -316,3 +316,8 @@ setTimeout(
   'Olives',
   'Spianch'
 );
+
+// setInterval(function () {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
